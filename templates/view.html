@@ -1,0 +1,23 @@
+
+<div class="bar bar-subheader bar-stable" ng-controller="Header">
+  <div class="buttons">
+    <a class="button" ui-sref="documents">
+      <i class="icon ion-ios-arrow-back"></i>Retour
+    </a>
+  </div>
+  <h2 class="title">Document visualisé: {{document.nom_fichier}}</h2>
+</div>
+
+<ion-content class="has-subheader">
+  <ion-refresher
+      pulling-text="Tirer pour rafraichir la page"
+      on-refresh="doRefresh()">
+    </ion-refresher>
+  <pdfviewer width="100%" src="{{trustSrc(pdfUrl)}}" id="viewer" load-progress='loadProgress(loaded, total, state)'></pdfviewer>
+</ion-content>
+
+<ion-footer-bar align-title="center" class="bar-positive" >
+
+  <a class="title positive" ng-controller="Signpad" ng-click="openSign()">Signer</a>
+
+</ion-footer-bar>

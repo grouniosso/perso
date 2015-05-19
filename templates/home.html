@@ -1,0 +1,31 @@
+
+<div class="bar bar-subheader bar-stable">
+  <h2 class="title">Bienvenue</h2>
+</div>
+<ion-content class=" has-subheader">
+  <ion-refresher
+      pulling-text="Tirer pour rafraichir la page"
+      on-refresh="doRefresh()">
+    </ion-refresher>
+  <div class="row row-center" ng-controller="Home">
+    <div class="col col-50 col-offset-25">
+      <div class="card">
+        <div class="item item-divider">
+          Identifiez-vous:
+        </div>
+
+            <label class="item item-radio" ng-repeat="medecin in medecins">
+              <input type="radio" name="select" value="{{medecin.id_medecin}}" ng-model="$parent.select">
+                <div class="item-content">
+                  Docteur {{medecin.nom}}
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+            </label>
+
+        <button class="button button-full button-positive" ng-click='connect()'>
+          Connexion
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-content>

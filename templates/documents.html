@@ -1,0 +1,42 @@
+
+<div class="bar bar-subheader bar-stable" ng-controller="Header">
+  <h2 class="title">Profil utilisé: Docteur {{identity.nom}}</h2>
+  <div class="buttons">
+    <button class="button button-assertive" ng-click="logout()">
+      <i class="icon ion-log-out"></i>Se déconnecter
+    </button>
+  </div>
+</div>
+
+<ion-content class="has-subheader" ng-controller="Documents">
+  <ion-refresher
+      pulling-text="Tirer pour rafraichir la page"
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <div class="row" ng-repeat="i in documents.range()">
+      <div class="col col-33" ng-repeat="document in documents.slice(i,i+3)">
+        <div class="list card">
+          <div class="item">
+            <h2>{{document.nom}}<br/> {{document.prenom}}</h2>
+            <p>{{document.date * 1000 | date : 'dd-MM-yyyy'}}</p>
+          </div>
+
+          <div class="item item-image">
+            <h1><img src="pdf/pdf-preview.png"/></h1>
+          </div>
+
+          <div class="row">
+              <div class="col col-100">
+                <button class="button button-block button-positive" ui-sref="view({'name':document.id, 'identity': document.id_medecin})">
+                  Consulter et signer
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</ion-content>
+
+<!-- <ion-footer-bar align-title="left" class="bar-stable">
+  <h1 class="title">Accéder aux archives</h1>
+</ion-footer-bar> -->

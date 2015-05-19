@@ -1,0 +1,23 @@
+
+<ion-modal-view scroll="false">
+  <ion-header-bar>
+    <h1 class="title">Signature de la patiente:</h1>
+  </ion-header-bar>
+  <ion-content scroll="false">
+    <br/>
+    </br/>
+   <!--<div signature-pad signature="myThings.mySignatureModel" close="myThings.myCloseFunction()"></div>-->
+   <center>
+     <canvas ng-signature-pad="signature" style="border: 1px solid grey"></canvas>
+   </center>
+  </ion-content>
+  <ion-footer-bar align-title="left" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-assertive" ng-click="clearCanvas()">Recommencer la signature</button>
+    </div>
+    <h1 class="title"></h1>
+    <div class="buttons">
+      <button class="button button-balanced" ng-click="saveCanvas()">Valider la signature</button>
+    </div>
+  </ion-footer-bar>
+</ion-modal-view>
